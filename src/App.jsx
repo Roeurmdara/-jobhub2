@@ -8,6 +8,9 @@ import Donelogin from './pages/Donelogin'
 import Checkemail from './pages/checkemail'
 import Sidebar from './components/Sidebar'
 import Profile from './pages/Profile'
+// import CompanyProfile from "../CompanyProfile"
+import CompanyProfile from "../CompanyProfile"
+
 
 function App() {
   return (
@@ -21,8 +24,7 @@ function App() {
       <Checkemail/>
       <Sidebar/>
       <Profile/>
-      
-  
+      <CompanyProfile/>
     </>
   )
 }
