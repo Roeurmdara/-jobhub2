@@ -21,6 +21,7 @@ function App() {
       <Checkemail/>
       <Sidebar/>
       <Profile/>
+      
   
     </>
   )
