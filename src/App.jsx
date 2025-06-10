@@ -8,8 +8,7 @@ import Donelogin from './pages/Donelogin'
 import Checkemail from './pages/checkemail'
 import Sidebar from './components/Sidebar'
 import Profile from './pages/Profile'
-// import CompanyProfile from "../CompanyProfile"
-import CompanyProfile from "../CompanyProfile"
+import CompanyProfile from './pages/CompanyProfile'
 
 
 function App() {
@@ -22,7 +21,7 @@ function App() {
       <Forgetpassword/>
       <Donelogin/>
       <Checkemail/>
-      <Sidebar/>
+      {/* <Sidebar/> */}
       <Profile/>
       <CompanyProfile/>
     </>
