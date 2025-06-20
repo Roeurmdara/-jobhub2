@@ -218,9 +218,7 @@ const CompanyProfile = () => {
           </div>
         </div>
       </div>
-
-      {/* Footer */}
-      
+ 
     </div>
   )
 }

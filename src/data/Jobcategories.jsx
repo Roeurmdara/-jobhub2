@@ -1,4 +1,4 @@
-const categories= [
+const Jobcategories= [
     {
       id: 1,
       title: "Web & Software Developer",
@@ -132,4 +132,4 @@ const categories= [
       color: "#E6FFE8",
     },
   ];
-  export default categories;
+  export default Jobcategories;

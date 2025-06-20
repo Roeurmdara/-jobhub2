@@ -1,0 +1,71 @@
+const companies = [
+    // Top row
+    {
+      id: 1,
+      name: "Millenniumsoft Agency",
+      location: "Los Angeles",
+      openJobs: 7,
+      logo: "📊",
+      isSelected: true,
+    },
+    {
+      id: 2,
+      name: "Millenniumsoft Agency",
+      location: "Los Angeles",
+      openJobs: 7,
+      logo: "✚",
+      logoColor: "text-green-500",
+    },
+    {
+      id: 3,
+      name: "Millenniumsoft Agency",
+      location: "Los Angeles",
+      openJobs: 7,
+      logo: "G",
+      logoColor: "text-blue-500 text-2xl font-bold",
+    },
+    {
+      id: 4,
+      name: "Millenniumsoft Agency",
+      location: "Los Angeles",
+      openJobs: 7,
+      logo: "a",
+      logoColor: "text-black text-2xl",
+      fontFamily: "font-serif",
+    },
+    // Bottom row
+    {
+      id: 5,
+      name: "Millenniumsoft Agency",
+      location: "Los Angeles",
+      openJobs: 7,
+      logo: "W",
+      logoColor: "text-orange-500 text-xl font-bold",
+    },
+    {
+      id: 6,
+      name: "Millenniumsoft Agency",
+      location: "Los Angeles",
+      openJobs: 7,
+      logo: "a",
+      logoColor: "text-black text-2xl",
+      fontFamily: "font-serif",
+    },
+    {
+      id: 7,
+      name: "Millenniumsoft Agency",
+      location: "Los Angeles",
+      openJobs: 7,
+      logo: "📐",
+      logoColor: "text-red-500",
+    },
+    {
+      id: 8,
+      name: "Millenniumsoft Agency",
+      location: "Los Angeles",
+      openJobs: 7,
+      logo: "G",
+      logoColor: "text-blue-500 text-2xl font-bold",
+    },
+  ]
+  export default companies;

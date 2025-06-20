@@ -1,7 +1,8 @@
 
-
 import { useState } from "react"
-
+import categories from "../data/Jobcategories"
+import companies from "../data/companies"
+import steps from "../data/step"
 // Custom MapPin icon component to replace Lucide React
 const MapPinIcon = () => (
   <svg
@@ -19,300 +20,16 @@ const MapPinIcon = () => (
     <circle cx="12" cy="10" r="3"></circle>
   </svg>
 )
-
 export default function Loading() {
   const [hoveredCategory, setHoveredCategory] = useState(null)
   const [hoveredCompany, setHoveredCompany] = useState(null)
   const [hoveredStep, setHoveredStep] = useState(null)
-
-  // Job Categories Data
-  const categories = [
-    {
-      id: 1,
-      title: "Web & Software Developer",
-      subtitle: "Software Engineer, Web developer & more",
-      jobs: 612,
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="40" height="40" rx="8" fill="#E6F0FF" />
-          <path d="M12 14H28V24H12V14Z" stroke="#4285F4" strokeWidth="1.5" />
-          <path
-            d="M16 28H24V28C24 29.1046 23.1046 30 22 30H18C16.8954 30 16 29.1046 16 28V28Z"
-            stroke="#4285F4"
-            strokeWidth="1.5"
-          />
-          <path d="M20 24V28" stroke="#4285F4" strokeWidth="1.5" />
-        </svg>
-      ),
-      color: "#E6F0FF",
-    },
-    {
-      id: 2,
-      title: "Data Science & Analytics",
-      subtitle: "Data Specialist, Data Analyst & more",
-      jobs: 102,
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="40" height="40" rx="8" fill="#E6FFF9" />
-          <circle cx="20" cy="20" r="6" stroke="#0CCE9C" strokeWidth="1.5" />
-          <path d="M20 14V12" stroke="#0CCE9C" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M26 20H28" stroke="#0CCE9C" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M20 28V26" stroke="#0CCE9C" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M12 20H14" stroke="#0CCE9C" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M24.5 15.5L26 14" stroke="#0CCE9C" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M24.5 24.5L26 26" stroke="#0CCE9C" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M15.5 24.5L14 26" stroke="#0CCE9C" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M15.5 15.5L14 14" stroke="#0CCE9C" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
-      ),
-      color: "#E6FFF9",
-    },
-    {
-      id: 3,
-      title: "Education & Training",
-      subtitle: "Advisor, Coach, Coordinator & more",
-      jobs: 1012,
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="40" height="40" rx="8" fill="#FFF1E6" />
-          <path d="M20 12L28 16L20 20L12 16L20 12Z" stroke="#FF9966" strokeWidth="1.5" />
-          <path d="M28 16V24" stroke="#FF9966" strokeWidth="1.5" />
-          <path d="M15 17.5V23C15 23 17 25 20 25C23 25 25 23 25 23V17.5" stroke="#FF9966" strokeWidth="1.5" />
-        </svg>
-      ),
-      color: "#FFF1E6",
-    },
-    {
-      id: 4,
-      title: "Graphics & Design",
-      subtitle: "Graphic Designer, Art Director & more",
-      jobs: 1012,
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="40" height="40" rx="8" fill="#FFE6F0" />
-          <circle cx="20" cy="18" r="6" stroke="#FF66A1" strokeWidth="1.5" />
-          <path d="M14 28L18 22" stroke="#FF66A1" strokeWidth="1.5" />
-          <path d="M26 28L22 22" stroke="#FF66A1" strokeWidth="1.5" />
-        </svg>
-      ),
-      color: "#FFE6F0",
-    },
-    {
-      id: 5,
-      title: "Accounting & Consulting",
-      subtitle: "Financial Analyst, Accountant & more",
-      jobs: 308,
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="40" height="40" rx="8" fill="#EEE6FF" />
-          <rect x="14" y="14" width="12" height="4" stroke="#8866FF" strokeWidth="1.5" />
-          <rect x="14" y="18" width="12" height="4" stroke="#8866FF" strokeWidth="1.5" />
-          <rect x="14" y="22" width="12" height="4" stroke="#8866FF" strokeWidth="1.5" />
-        </svg>
-      ),
-      color: "#EEE6FF",
-    },
-    {
-      id: 6,
-      title: "Writing & Translation",
-      subtitle: "Content Creator, Copywriter & more",
-      jobs: 802,
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="40" height="40" rx="8" fill="#E6F5FF" />
-          <path d="M14 14H26V26H14V14Z" stroke="#66B2FF" strokeWidth="1.5" />
-          <path d="M17 18H23" stroke="#66B2FF" strokeWidth="1.5" />
-          <path d="M17 22H23" stroke="#66B2FF" strokeWidth="1.5" />
-        </svg>
-      ),
-      color: "#E6F5FF",
-    },
-    {
-      id: 7,
-      title: "Digital Marketing",
-      subtitle: "UX Designer, UI Designer & more",
-      jobs: 1012,
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="40" height="40" rx="8" fill="#FFFDE6" />
-          <path d="M14 20L20 14L26 20L20 26L14 20Z" stroke="#FFD966" strokeWidth="1.5" />
-          <circle cx="20" cy="20" r="2" stroke="#FFD966" strokeWidth="1.5" />
-        </svg>
-      ),
-      color: "#FFFDE6",
-    },
-    {
-      id: 8,
-      title: "Sales & Marketing",
-      subtitle: "Advisor, Coach, Coordinator & more",
-      jobs: 1012,
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="40" height="40" rx="8" fill="#E6FFE8" />
-          <rect x="14" y="16" width="12" height="8" rx="1" stroke="#66CC6A" strokeWidth="1.5" />
-          <path d="M18 16V14" stroke="#66CC6A" strokeWidth="1.5" />
-          <path d="M22 16V14" stroke="#66CC6A" strokeWidth="1.5" />
-          <path d="M16 24L16 26" stroke="#66CC6A" strokeWidth="1.5" />
-          <path d="M20 24L20 26" stroke="#66CC6A" strokeWidth="1.5" />
-          <path d="M24 24L24 26" stroke="#66CC6A" strokeWidth="1.5" />
-        </svg>
-      ),
-      color: "#E6FFE8",
-    },
-  ]
-
-  // Featured Companies Data
-  const companies = [
-    // Top row
-    {
-      id: 1,
-      name: "Millenniumsoft Agency",
-      location: "Los Angeles",
-      openJobs: 7,
-      logo: "📊",
-      isSelected: true,
-    },
-    {
-      id: 2,
-      name: "Millenniumsoft Agency",
-      location: "Los Angeles",
-      openJobs: 7,
-      logo: "✚",
-      logoColor: "text-green-500",
-    },
-    {
-      id: 3,
-      name: "Millenniumsoft Agency",
-      location: "Los Angeles",
-      openJobs: 7,
-      logo: "G",
-      logoColor: "text-blue-500 text-2xl font-bold",
-    },
-    {
-      id: 4,
-      name: "Millenniumsoft Agency",
-      location: "Los Angeles",
-      openJobs: 7,
-      logo: "a",
-      logoColor: "text-black text-2xl",
-      fontFamily: "font-serif",
-    },
-    // Bottom row
-    {
-      id: 5,
-      name: "Millenniumsoft Agency",
-      location: "Los Angeles",
-      openJobs: 7,
-      logo: "W",
-      logoColor: "text-orange-500 text-xl font-bold",
-    },
-    {
-      id: 6,
-      name: "Millenniumsoft Agency",
-      location: "Los Angeles",
-      openJobs: 7,
-      logo: "a",
-      logoColor: "text-black text-2xl",
-      fontFamily: "font-serif",
-    },
-    {
-      id: 7,
-      name: "Millenniumsoft Agency",
-      location: "Los Angeles",
-      openJobs: 7,
-      logo: "📐",
-      logoColor: "text-red-500",
-    },
-    {
-      id: 8,
-      name: "Millenniumsoft Agency",
-      location: "Los Angeles",
-      openJobs: 7,
-      logo: "G",
-      logoColor: "text-blue-500 text-2xl font-bold",
-    },
-  ]
-
-  // How It Works Steps Data
-  const steps = [
-    {
-      id: 1,
-      title: "Create an Account",
-      description: "Go to the website's homepage and click on the 'Register' or 'Sign Up' button.",
-      icon: (
-        <div className="w-full h-32 bg-blue-50 rounded-lg flex flex-col items-center justify-center p-4 step-card-content">
-          <div className="w-full h-4 bg-blue-200 rounded mb-4"></div>
-          <div className="w-full h-4 bg-gray-200 rounded mb-2"></div>
-          <div className="w-3/4 h-4 bg-gray-200 rounded mb-4"></div>
-          <button className="bg-blue-500 text-white px-6 py-2 rounded text-sm font-medium">Register</button>
-        </div>
-      ),
-    },
-    {
-      id: 2,
-      title: "Search Desired Job",
-      description: "Start browsing job listings and applying to positions that interest you.",
-      icon: (
-        <div className="w-full h-32 bg-blue-50 rounded-lg flex flex-col items-center justify-center p-4 step-card-content">
-          <div className="w-full h-4 bg-blue-200 rounded mb-4"></div>
-          <div className="flex items-center justify-between w-full mb-2">
-            <div className="w-3/4 h-3 bg-gray-200 rounded"></div>
-            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-          </div>
-          <div className="flex items-center justify-between w-full mb-2">
-            <div className="w-2/3 h-3 bg-gray-200 rounded"></div>
-            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-          </div>
-          <div className="flex items-center justify-between w-full">
-            <div className="w-3/4 h-3 bg-gray-200 rounded"></div>
-            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-          </div>
-        </div>
-      ),
-    },
-    {
-      id: 3,
-      title: "Send Resume",
-      description: "Upload your resume and cover letter, if applicable.",
-      icon: (
-        <div className="w-full h-32 bg-blue-50 rounded-lg flex flex-col items-center justify-center p-4 step-card-content">
-          <div className="w-full h-4 bg-blue-200 rounded mb-4"></div>
-          <div className="flex items-center justify-between w-full mb-4">
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-blue-300 rounded-full flex items-center justify-center mr-2">
-                <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <div>
-                <div className="w-16 h-2 bg-gray-300 rounded mb-1"></div>
-                <div className="w-12 h-2 bg-gray-200 rounded"></div>
-              </div>
-            </div>
-            <button className="bg-green-500 text-white px-4 py-1 rounded text-xs font-medium flex items-center">
-              Send
-              <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-      ),
-    },
-  ]
-
   const handleCategoryMouseEnter = (id) => {
     setHoveredCategory(id)
   }
-
   const handleCategoryMouseLeave = () => {
     setHoveredCategory(null)
   }
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -337,7 +54,6 @@ export default function Loading() {
               <span className="text-sm text-gray-600">100% Trusted</span>
             </div>
           </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="hero-content">
@@ -349,7 +65,6 @@ export default function Loading() {
                   Here. Search for Jobs <span className="text-blue-500">Nationwide</span>
                 </h1>
               </div>
-
               {/* Search Form */}
               <div className="bg-white rounded-2xl p-2 shadow-lg mb-8 search-form">
                 <div className="flex flex-col sm:flex-row gap-4 items-center">
@@ -380,13 +95,11 @@ export default function Loading() {
                     <option>Development</option>
                     <option>Marketing</option>
                   </select>
-
                   <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold transition-all text-base find-job-btn">
                     Find Job
                   </button>
                 </div>
               </div>
-
               {/* Popular Searches */}
               <div className="mb-8 popular-searches">
                 <p className="text-gray-600 font-medium mb-3">Popular Searches:</p>
