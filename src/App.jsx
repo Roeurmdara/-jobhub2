@@ -9,10 +9,10 @@ import Checkemail from "./pages/checkemail";
 import Sidebar from "./components/Sidebar";
 import Profile from "./pages/Profile";
 import CompanyProfile from "./pages/CompanyProfile";
-// import CompanyAosCard from "./components/CompanyAosCard";
+
 import FindJob from "./pages/FindJob";
-// import BrowseCompanies from "./pages/Search_Companies_Profile";
-import JobListing from "./pages/JobListing";
+import BrowserCompanies from "./pages/BrowserCompanies";
+// import JobListing from "./pages/JobListing";   
 function App() {
   return (
     <>
@@ -28,8 +28,9 @@ function App() {
       <CompanyProfile />
       <FindJob />
       {/* <BrowseCompanies /> */}
-      <JobListing />
+      {/* <JobListing /> */}
       {/* <CompanyAosCard /> */}
+      <BrowserCompanies/>
     </>
   );
 }
